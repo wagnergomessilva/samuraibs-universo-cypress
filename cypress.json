@@ -1,5 +1,12 @@
 {
    "baseUrl": "http://localhost:3000/",  
     "viewportWidth": 1440,
-    "viewportHeight": 900 
+    "viewportHeight": 900,
+    "dbConfig": {
+        "host": "peanut.db.elephantsql.com",
+        "user": "plobnobt",
+        "password": "XmLPhj9qFnJNmUc_1Vcdku0_fRTNus-h",
+        "database": "plobnobt",
+        "port" : 5432
+    }
 }
