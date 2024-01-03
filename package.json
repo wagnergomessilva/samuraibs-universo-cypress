@@ -1,0 +1,16 @@
+{
+  "name": "samuraibs-tests",
+  "version": "1.0.0",
+  "description": "Projeto de testes de aceitação de ponta a ponta em Cypress",
+  "main": "index.js",
+  "author": "Wagner QA",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^8.1.0",
+    "cypress": "^13.3.0",
+    "pg": "^8.11.3"
+  },
+  "scripts": {
+    "test": "cypress open"
+  }
+}
