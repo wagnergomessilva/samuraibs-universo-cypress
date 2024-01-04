@@ -2,17 +2,20 @@ const { defineConfig } = require("cypress");
 const { Pool } = require('pg')
 
 module.exports = defineConfig({
+  dbconfig: {
+    host: 'peanut.db.elephantsql.com',
+    user: 'plobnobt',
+    password: 'XmLPhj9qFnJNmUc_1Vcdku0_fRTNus-h',
+    database: 'plobnobt',
+    port: 5432
+  },
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
 
-      const pool = new Pool({
-        host: 'peanut.db.elephantsql.com',
-        user: 'plobnobt',
-        password: 'XmLPhj9qFnJNmUc_1Vcdku0_fRTNus-h',
-        database: 'plobnobt',
-        port: 5432
-      })
+      const configJson = require(config.configFile)
+
+      const pool = new Pool(configJson.dbconfig)
 
       on('task', {
         removeUser(email) {
