@@ -1,0 +1,23 @@
+{
+  "success": {
+    "name": "Wagner QA",
+    "email": "wag.gomes2015@gmail.com",
+    "password": "abcd1234"
+  },
+  "email_dup": {
+    "name": "João teste",
+    "email": "joao.teste@gmail.com",
+    "password": "abcd1234",
+    "is_provider": true
+  },
+  "email_inv": {
+    "name": "Elizabeth Olsen",
+    "email": "liza.yahoo.com",
+    "password": "abcd1234"
+  },
+  "short_password": {
+    "name": "Jason Friday",
+    "email": "jason@gmail.com",
+    "password": null
+  }
+}
