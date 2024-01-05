@@ -1,12 +1,14 @@
 
 import { el } from './elements'
 import toast from '../../components/toast'
+import alert from '../../components/alert'
 
 class SignupPage {
 
     // O construtor irá por padrão executar toda vez que for utilizado o new SignupPage nos testes. 
     constructor() {
         this.toast = toast
+        this.alert = alert
     }
 
     go() {
@@ -22,11 +24,7 @@ class SignupPage {
     submit() {
         cy.contains(el.signupButton).click()
     }
-
-    alertHaveText(expectedText){
-        cy.contains('.alert-error', expectedText)
-            .should('be.visible')
-    }
+    
 }
 
 export default new SignupPage()
