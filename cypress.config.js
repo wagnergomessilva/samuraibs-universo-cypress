@@ -50,6 +50,8 @@ module.exports = defineConfig({
     apiServer: 'http://localhost:3333',
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}",
     viewportWidth: 1440,
-    viewportHeight: 900
+    viewportHeight: 900,
+    videosFolder: "cypress/videos",
+    video: false
   },
 });
