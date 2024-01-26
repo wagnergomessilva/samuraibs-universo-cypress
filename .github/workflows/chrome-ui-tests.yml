@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         
-	  - name: Ping API
+      - name: Ping API
         uses: Leocardoso94/is-my-site-up@v1.2
         with:
           site: https://samuraibs-api-papito.fly.dev
@@ -26,7 +26,7 @@ jobs:
           parallel: true # Runs test in parallel using settings above
           group: 'UI - Chrome'
           spec: cypress/e2e/*
-      env:
-		    TZ: America/Sao_paulo
-		    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+	env:    
+          TZ: America/Sao_paulo
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
