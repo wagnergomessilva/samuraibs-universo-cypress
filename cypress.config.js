@@ -52,6 +52,7 @@ module.exports = defineConfig({
     viewportWidth: 1440,
     viewportHeight: 900,
     videosFolder: "cypress/videos",
-    video: false
+    video: false,
+    projectId: "iqaqet"
   },
 });
