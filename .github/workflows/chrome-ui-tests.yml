@@ -1,37 +1,47 @@
-name: Cypress Tests
+# This is a basic workflow to help you get started with Actions
+
+name: Chrome UI Tests
+
+# Controls when the workflow will run
 on:
   workflow_dispatch:
     inputs:
       specs:
         description: 'Run ALL or unique spec'
         default: cypress/e2e/*
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  cypress-run:
+  # This workflow contains a single job called "build"
+  chrome-ui-tests:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+      fail-fast: false
       matrix:
-        containers: [1] # Uses 2 parallel instances
+        # run copies of the current job in parallel
+        containers: [1]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         
-      - name: Ping API
+      - name: Ping API (heroku)
         uses: Leocardoso94/is-my-site-up@v1.2
         with:
           site: https://samuraibs-api-papito.fly.dev
-      - name: Cypress run
+
+      - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v6
         with:
+          # we have already installed all dependencies above
           install-command: yarn install
           wait-on: 'https://samuraibs-web-papito.fly.dev'
           wait-on-timeout: 120
           browser: chrome
           record: true
-          parallel: true # Runs test in parallel using settings above
+          parallel: true
           group: 'UI - Chrome'
-          spec: cypress/e2e/*
-	env:    
-          TZ: America/Sao_paulo
+          spec: ${{ github.event.inputs.specs }}
+        env:
+          TZ: America/Sao_Paulo
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
